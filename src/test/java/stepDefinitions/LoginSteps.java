@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.cucumber.java.en.*;
@@ -19,7 +20,14 @@ public class LoginSteps extends BaseClass{
 //		System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir"+"//Drivers/geckodriver"));
 		
 //		WebDriverManager.firefoxdriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		
+		options.setHeadless(true);
+//		options.addArguments("--headless");
+		
+		
 		WebDriverManager.chromedriver().setup();
+		
 		driver = new ChromeDriver();
 //		driver = new FirefoxDriver();
 		lp = new LoginPage(driver);

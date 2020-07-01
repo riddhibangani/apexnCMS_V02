@@ -38,7 +38,7 @@ public class CheckWebElements
 			System.out.println("Instructor is created successfully");
 		}
 	 
-	 
+//	 
 //	 if(driver.getPageSource().contains("Duncan")){
 //		 System.out.println("Text is present");
 //		 }else{
