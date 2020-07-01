@@ -39,11 +39,11 @@ public class CheckWebElements
 		}
 	 
 	 
-//	 if(driver.getPageSource().contains("Duncan")){
-//		 System.out.println("Text is present");
-//		 }else{
-//		 System.out.println("Text is absent");
-//		 }
+	 if(driver.getPageSource().contains("Duncan")){
+		 System.out.println("Text is present");
+		 }else{
+		 System.out.println("Text is absent");
+		 }
 //	 driver.findElement(By.xpath("//button[@class='create-btn mat-flat-button mat-button-base mat-primary _mat-animation-noopable']/span[@class='mat-button-wrapper' and 1]")).click();
 //	 driver.findElement(By.id("name")).sendKeys("Test12");
 //	 driver.findElement(By.id("bio")).sendKeys("Information about test12");
