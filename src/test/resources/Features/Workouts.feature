@@ -2,15 +2,19 @@
 Feature: Ability to add and edit Workouts
   As an admin user I want to be able to add a new Workouts as well as edit existing Workouts
 
-  
-   @addworkouts
-  Scenario: Add new workout
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
+  Background: Login successflly to the APEX CMS portal and select Workouts from main menu
+  	Given user is on CMS login page
+    When user enters username as and password
     And clicks on login button
     Then user is navigated to home page with page title as "APEX - Login"
     When user click on the main menu
     And select the option as "Workouts"
+  
+  
+  
+  
+   @addworkouts
+  Scenario: Add new workout
     When click on "Create a new workout" button
     And enter all the mandatory data
     When select Genre
@@ -24,12 +28,6 @@ Feature: Ability to add and edit Workouts
     
      @addworkoutssplits
   Scenario: Add new workout with splits
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
-    Then user is navigated to home page with page title as "APEX - Login"
-    When user click on the main menu
-    And select the option as "Workouts"
     When click on "Create a new workout" button
     And enter all the mandatory data
     When select Genre
@@ -48,12 +46,6 @@ Feature: Ability to add and edit Workouts
     
     @editWorkout
     Scenario: Edit existing workout
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
-    Then user is navigated to home page with page title as "APEX - Login"
-    When user click on the main menu
-    And select the option as "Workouts"
     And click on the existing workout
     And update the mandatory details
     And click on save button
@@ -62,12 +54,6 @@ Feature: Ability to add and edit Workouts
     
     @editWorkoutSplit
     Scenario: Edit existing workout
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
-    Then user is navigated to home page with page title as "APEX - Login"
-    When user click on the main menu
-    And select the option as "Workouts"
     And click on the existing workout
     And update the split details
     And click on save button
@@ -77,12 +63,6 @@ Feature: Ability to add and edit Workouts
     
     @filterallWorkout
     Scenario: Filter the Workout to view all the list
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
-    Then user is navigated to home page with page title as "APEX - Login"
-    When user click on the main menu
-    And select the option as "Workouts"
     When click on filter option
     And select "All"
     Then the filtered workout should be visible
@@ -90,12 +70,6 @@ Feature: Ability to add and edit Workouts
     
     @filteractiveWorkout
     Scenario: Filter the Workout to view active list
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
-    Then user is navigated to home page with page title as "APEX - Login"
-    When user click on the main menu
-   And select the option as "Workouts"
     When click on filter option
     And select "Active"
     Then the filtered workout should be visible
@@ -103,43 +77,10 @@ Feature: Ability to add and edit Workouts
     
     @filterarchiveWorkouts
     Scenario: Filter the Workout to view archive list
-    Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
-    Then user is navigated to home page with page title as "APEX - Login"
-    When user click on the main menu
-    And select the option as "Workouts"
     When click on filter option
     And select "Archive"
     Then the filtered workout should be visible
     And close the browser
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
