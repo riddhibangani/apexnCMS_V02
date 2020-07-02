@@ -2,10 +2,9 @@
 Feature: Ability to add and edit instructors
   As an admin user I want to be able to add a new instructor as well as edit existing instructors
 
-	Background: Login successflly to the APEX CMS portal
-		Given user is on CMS login page at "https://qa.apexcms.waracle.dev/login"
-    When user enters username as "webmaster@waracle.com" and password as "onw53oUbwb1Ol1"
-    And clicks on login button
+	Background: Login successflly to the APEX CMS portal and select Instructor from main menu
+		Given user is on CMS login page
+    When user enters username as and passwordAnd clicks on login button
     Then user is navigated to home page with page title as "APEX - Login"
     When user click on the main menu
     And select the option as Instructor

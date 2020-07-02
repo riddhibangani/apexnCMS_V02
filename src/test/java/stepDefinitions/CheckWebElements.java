@@ -28,16 +28,16 @@ public class CheckWebElements
 	 driver.findElement(By.id("instructors")).click();
 	 Thread.sleep(3000);
 	 
-	 if(driver.getPageSource().contains("Duncan"))
-		{
-			System.out.println("Instructor is created successfully");
-			Assert.assertTrue(false);
-		}
-		else{
-			Assert.assertEquals("Duncan", driver.getPageSource().contains("Duncan"));
-			System.out.println("Instructor is created successfully");
-		}
-	 
+//	 if(driver.getPageSource().contains("Duncan"))
+//		{
+//			System.out.println("Instructor is created successfully");
+//			Assert.assertTrue(false);
+//		}
+//		else{
+//			Assert.assertEquals("Duncan", driver.getPageSource().contains("Duncan"));
+//			System.out.println("Instructor is created successfully");
+//		}
+//	 
 //	 
 //	 if(driver.getPageSource().contains("Duncan")){
 //		 System.out.println("Text is present");
@@ -66,61 +66,6 @@ public class CheckWebElements
 	 
 	 
 	 
-	 
-//	 public void selectFromMenu(String option) throws InterruptedException
-//		{
-//
-//			WebElement listitem;
-//
-//			Thread.sleep(3000);
-//
-//			if(option.equals("Instructor"))
-//			{
-//				listitem=ldriver.findElement(Inst_menuitem);
-//			}
-//			else if(option.equals("Music categories"))
-//			{
-//				listitem=ldriver.findElement(MscCatgy_menuitem);
-//			}
-//			else if(option.equals("Workouts"))
-//			{
-//				listitem=ldriver.findElement(Wrkout_menuitem);
-//			}
-//			else if(option.equals("Defaults"))
-//			{
-//				listitem=ldriver.findElement(default_menuitem);
-//			}
-//			else
-//			{
-//				listitem=ldriver.findElement(logout_menuitem);
-//			}
-//			listitem.click();
-//
-//		}
-//	 
-//	}
 	
-	 
-	 
-//	 public void clickCreateNewbtn(String CreateNew) throws InterruptedException
-//		{
-//			WebElement CreateNewitem;
-//			Thread.sleep(3000);
-//
-//			if(CreateNew.equals("Create a new instructor"))
-//			{
-//				CreateNewitem=ldriver.findElement(btnCreateNewInst);
-//			}
-//			else if(CreateNew.equals("Create a new music category"))
-//			{
-//				CreateNewitem=ldriver.findElement(btnCreateNewMsc);
-//			}
-//			else
-//			{
-//				CreateNewitem=ldriver.findElement(btnCreateNewWorkout);
-//			}
-//
-//			CreateNewitem.click();
-//		}
 }
 }
