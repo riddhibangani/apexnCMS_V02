@@ -45,25 +45,25 @@ public WebDriver ldriver;
 	
 	public void clickonFilter()
 	{
-		waithelper.WaitForElement(drpFilter, 10);
+		waithelper.WaitForClikableElement(drpFilter, 10);
 		drpFilter.click();
 	}
 	
 	public void selectAll()
 	{
-		waithelper.WaitForElement(FilterAll, 10);
+		waithelper.WaitForClikableElement(FilterAll, 10);
 		FilterAll.click();
 	}
 	
 	public void selectActive()
 	{
-		waithelper.WaitForElement(FilterActive, 10);
+		waithelper.WaitForClikableElement(FilterActive, 10);
 		FilterActive.click();
 	}
 	
 	public void selectArchive()
 	{
-		waithelper.WaitForElement(FilterArchive, 10);
+		waithelper.WaitForClikableElement(FilterArchive, 10);
 		FilterArchive.click();
 	}
 

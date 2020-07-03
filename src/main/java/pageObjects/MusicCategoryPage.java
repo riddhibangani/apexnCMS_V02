@@ -40,13 +40,13 @@ public class MusicCategoryPage {
 	
 	public void selectMusicCategoryOption()
 	{
-		waithelper.WaitForElement(MscCatgy_menuitem, 10);
+		waithelper.WaitForClikableElement(MscCatgy_menuitem, 10);
 		MscCatgy_menuitem.click();
 	}
 	
 	public void createNewMusicCategorybtn()
 	{
-		waithelper.WaitForElement(btnCreateNewMsc, 10);
+		waithelper.WaitForClikableElement(btnCreateNewMsc, 10);
 		btnCreateNewMsc.click();
 	}
 	

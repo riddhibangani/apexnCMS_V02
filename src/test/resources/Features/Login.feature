@@ -24,4 +24,5 @@ Feature: Ability to check the CMS login by Admin user
     And clicks on login button
     Then user is navigated to home page with page title as "APEX - Login"
     And close the browser
+    
    

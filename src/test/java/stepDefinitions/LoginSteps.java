@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObjects.LoginPage;
@@ -12,14 +14,20 @@ import utilities.ConfigFileReader;
 public class LoginSteps extends BaseClass{
 	
 	ConfigFileReader configFileReader= new ConfigFileReader();
+	
+	
+	@Before
+	public void initDriver()
+	{
+		getDriver();
+	}
+	
 
 	@Given("user is on CMS login page")
 	public void user_is_on_cms_login_page() throws IOException 
 	{
 	    
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		lp = new LoginPage(driver);
+//		WebDriverManager.chromedriver().setup();
 		
 		driver.get(configFileReader.getCMSurl());
 		
@@ -30,8 +38,8 @@ public class LoginSteps extends BaseClass{
 	public void user_enters_username_as_and_password() throws IOException
 	{
 	   
-	   lp.setUserName(configFileReader.getusername());
-	   lp.setPassword(configFileReader.getpassword());
+		pageobjectmanager.getlp().setUserName(configFileReader.getusername());
+		pageobjectmanager.getlp().setPassword(configFileReader.getpassword());
 		
 	}
 	
@@ -39,7 +47,7 @@ public class LoginSteps extends BaseClass{
 	@And("clicks on login button")
 	public void clicks_on_login_button() throws InterruptedException {
 
-		lp.clickLogin();
+		pageobjectmanager.getlp().clickLogin();
 		Thread.sleep(3000);
 	}
 

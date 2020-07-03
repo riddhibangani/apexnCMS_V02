@@ -61,28 +61,24 @@ public class InstructorPage {
 
 	//Action Methods
 	
-	public String getTitle()
-	{
-		return ldriver.getTitle();
-	}
 
 	public void clickonMainMenu()
 	
 	{
-		waithelper.WaitForElement(Main_menuList, 10);
+		waithelper.WaitForClikableElement(Main_menuList, 10);
 		Main_menuList.click();
 	}
 
 	public void selectInstOption()
 	{
-		waithelper.WaitForElement(Inst_menuitem, 10);
+		waithelper.WaitForClikableElement(Inst_menuitem, 10);
 		Inst_menuitem.click();
 	}
 	
 
 	public void createNewInstbtn()
 	{
-		waithelper.WaitForElement(btnCreateNewInst, 5);
+		waithelper.WaitForClikableElement(btnCreateNewInst, 5);
 		btnCreateNewInst.click();
 	}
 
@@ -111,7 +107,7 @@ public class InstructorPage {
 	public void savenewInstructor()
 	{
 		btnSave_Inst.click();
-		waithelper.WaitForElement(btnSave_Inst, 5);
+		waithelper.WaitForClikableElement(btnSave_Inst, 5);
 	}
 
 	public void NewInstructor(String newInst)

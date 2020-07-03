@@ -10,7 +10,7 @@ public class ConfigFileReader {
 
 	private Properties properties;
 
-	private final String propertyFilePath =  "/Users/user/eclipse-workspace/apexnCMS_V02/config.properties";
+	private final String propertyFilePath =  "./TestData/config.properties";
 
 	private String url;
 	private String username;

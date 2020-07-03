@@ -2,6 +2,8 @@ package testRunner;
 
 import org.junit.runner.RunWith;
 import io.cucumber.junit.CucumberOptions;
+import stepDefinitions.BaseClass;
+import io.cucumber.java.Before;
 import io.cucumber.junit.Cucumber;
 //import cucumber.api.CucumberOptions;
 //import cucumber.api.junit.Cucumber;
@@ -18,10 +20,9 @@ import io.cucumber.junit.Cucumber;
 		
 		plugin = {"pretty","html:target/HTMLReports/reports.html"},
 		
-		tags="@addMusic"
+		tags="@addInst"
 		
 )
-
 
 //monochrome=true,
 //
@@ -36,5 +37,6 @@ import io.cucumber.junit.Cucumber;
 	
 
 public class TestRunner {
+	
 
 }
