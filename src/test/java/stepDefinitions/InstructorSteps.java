@@ -51,6 +51,7 @@ public class InstructorSteps extends BaseClass {
 	public void click_on_select_the_file_to_import() 
 	{
 		ip.uploadimage();
+		
 
 		//write the code to upload the file
 	}

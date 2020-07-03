@@ -12,7 +12,20 @@ public class ConfigFileReader {
 
 	private final String propertyFilePath =  "/Users/user/eclipse-workspace/apexnCMS_V02/config.properties";
 
-	public ConfigFileReader() {
+	private String url;
+	private String username;
+	private String password;
+
+	public ConfigFileReader() 
+	{
+		readPropertyfile();
+		url = properties.getProperty("URL");
+		username = properties.getProperty("USER");
+		password = properties.getProperty("PASSWORD");
+	}
+
+	public void readPropertyfile()
+	{
 		BufferedReader reader;
 		try
 		{
@@ -39,26 +52,26 @@ public class ConfigFileReader {
 
 	public String getCMSurl()
 	{
-		String url = properties.getProperty("URL");
-		if(url!= null)
-		return url;
-		else throw new RuntimeException("URL not specified in cofig.property");
+	
+			if(url!= null)
+			return url;
+			else throw new RuntimeException("URL not specified in cofig.property");
 	}
 	
-	public String getusername()
-	{
-		String username = properties.getProperty("USER");
-		if(username!= null)
-		return username;
-		else throw new RuntimeException("USER not specified in cofig.property");
-	}
-	
-	public String getpassword()
-	{
-		String password = properties.getProperty("PASSWORD");
-		if(password!= null)
-		return password;
-		else throw new RuntimeException("PASSWORD not specified in cofig.property");
-	}
+		public String getusername()
+		{
+			
+			if(username!= null)
+			return username;
+			else throw new RuntimeException("USER not specified in cofig.property");
+		}
+		
+		public String getpassword()
+		{
+			
+			if(password!= null)
+			return password;
+			else throw new RuntimeException("PASSWORD not specified in cofig.property");
+		}
 
 }
