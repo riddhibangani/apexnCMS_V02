@@ -4,7 +4,8 @@ Feature: Ability to add and edit instructors
 
 	Background: Login successflly to the APEX CMS portal and select Instructor from main menu
 		Given user is on CMS login page
-    When user enters username as and passwordAnd clicks on login button
+    When user enters username as and password
+    And clicks on login button
     Then user is navigated to home page with page title as "APEX - Login"
     When user click on the main menu
     And select the option as Instructor

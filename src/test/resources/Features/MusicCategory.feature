@@ -9,11 +9,11 @@ Feature: Ability to add and edit music categories
     And clicks on login button
     Then user is navigated to home page with page title as "APEX - Login"
     When user click on the main menu
-    And select the option as "Music categories"
+    And select the option as Music categories
   
    @addMusic
   Scenario: Add new music category
-    When click on "Create a new music category" button
+    When click on Create a new music category button
     And enter the title as "Metalica"
     And click on save button
     Then the new music category "Metalica" is added successfully
@@ -21,7 +21,7 @@ Feature: Ability to add and edit music categories
     
     @addandEditMusic
     Scenario: Add new music category and edit the same
-    When click on "Create a new music category" button
+    When click on Create a new music category button
     And enter the title as "Metalica"
     And click on save button
     Then the new music category "Metalica" is added successfully

@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.InstructorPage;
 import pageObjects.LoginPage;
+import pageObjects.MusicCategoryPage;
 
 public class BaseClass {
 
@@ -18,6 +19,8 @@ public class BaseClass {
 	
 	public LoginPage lp;
 	public InstructorPage ip;
+	public MusicCategoryPage mp;
+	
 	
 	public static Logger logger;
 	

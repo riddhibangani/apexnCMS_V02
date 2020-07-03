@@ -18,7 +18,7 @@ import io.cucumber.junit.Cucumber;
 		
 		plugin = {"pretty","html:target/HTMLReports/reports.html"},
 		
-		tags="@config"
+		tags="@addMusic"
 		
 )
 

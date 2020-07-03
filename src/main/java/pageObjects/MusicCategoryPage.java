@@ -50,6 +50,11 @@ public class MusicCategoryPage {
 		btnCreateNewMsc.click();
 	}
 	
+	public void enterMscTitle(String MscTitle)
+	{
+		txtTitle.sendKeys(MscTitle);
+	}
+	
 	public void NewMusicCategory(String newMscCat)
 	{
 		
