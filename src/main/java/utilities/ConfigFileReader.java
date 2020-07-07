@@ -15,6 +15,8 @@ public class ConfigFileReader {
 	private String url;
 	private String username;
 	private String password;
+	private String file;
+	private String report;
 
 	public ConfigFileReader() 
 	{
@@ -22,6 +24,8 @@ public class ConfigFileReader {
 		url = properties.getProperty("URL");
 		username = properties.getProperty("USER");
 		password = properties.getProperty("PASSWORD");
+		file = properties.getProperty("FILE");
+		report = properties.getProperty("reportConfigPath");
 	}
 
 	public void readPropertyfile()
@@ -52,26 +56,40 @@ public class ConfigFileReader {
 
 	public String getCMSurl()
 	{
-	
-			if(url!= null)
+
+		if(url!= null)
 			return url;
-			else throw new RuntimeException("URL not specified in cofig.property");
+		else throw new RuntimeException("URL not specified in cofig.property");
+	}
+
+	public String getusername()
+	{
+
+		if(username!= null)
+			return username;
+		else throw new RuntimeException("USER not specified in cofig.property");
+	}
+
+	public String getpassword()
+	{
+
+		if(password!= null)
+			return password;
+		else throw new RuntimeException("PASSWORD not specified in cofig.property");
 	}
 	
-		public String getusername()
-		{
-			
-			if(username!= null)
-			return username;
-			else throw new RuntimeException("USER not specified in cofig.property");
-		}
-		
-		public String getpassword()
-		{
-			
-			if(password!= null)
-			return password;
-			else throw new RuntimeException("PASSWORD not specified in cofig.property");
+	public String getFile()
+	{
+
+		if(file!= null)
+			return file;
+		else throw new RuntimeException("FILE not specified in cofig.property");
+	}
+	
+	public String getReportConfigPath(){
+		 String reportConfigPath = properties.getProperty("reportConfigPath");
+		 if(reportConfigPath!= null) return reportConfigPath;
+		 else throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath"); 
 		}
 
 }

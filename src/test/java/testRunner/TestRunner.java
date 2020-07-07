@@ -1,5 +1,6 @@
 package testRunner;
 
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 import io.cucumber.junit.CucumberOptions;
 import stepDefinitions.BaseClass;
@@ -20,7 +21,9 @@ import io.cucumber.junit.Cucumber;
 		
 		plugin = {"pretty","html:target/HTMLReports/reports.html"},
 		
-		tags="@addInst"
+//		plugin = { “com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html”}
+		
+		tags="@filterarchive"
 		
 )
 
@@ -37,6 +40,11 @@ import io.cucumber.junit.Cucumber;
 	
 
 public class TestRunner {
+	 @AfterClass
+	 public static void writeExtentReport() 
+	 {
+//	 Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+	 }
 	
 
 }

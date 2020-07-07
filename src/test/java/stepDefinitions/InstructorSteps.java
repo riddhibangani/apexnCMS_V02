@@ -7,10 +7,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import pageObjects.InstructorPage;
+import utilities.ConfigFileReader;
 
 public class InstructorSteps extends BaseClass {
 
-	
+	ConfigFileReader configFileReader= new ConfigFileReader();
 
 	@When("^user click on the main menu$")
 	public void user_click_on_the_main_menu() 
@@ -45,13 +46,11 @@ public class InstructorSteps extends BaseClass {
 		pageobjectmanager.getip().enterInstBio(instBio);
 	}
 
-	@When("^click on select the file to import$")
-	public void click_on_select_the_file_to_import() 
-	{
-		pageobjectmanager.getip().uploadimage();
+	@When("^click on select the file to import at \"([^\"]*)\"$")
+    public void click_on_select_the_file_to_import_at_something(String filepath) {
 		
-
-		//write the code to upload the file
+		pageobjectmanager.getip().uploadimage(filepath);
+		
 	}
 
 	@And("^click on save button$")
@@ -66,8 +65,51 @@ public class InstructorSteps extends BaseClass {
 		
 		pageobjectmanager.getip().NewInstructor(newInst);
 	}
+	
+	@When("^click on filter option$")
+    public void click_on_filter_option() throws Throwable 
+    {
+		pageobjectmanager.getfp().clickonFilter();
+    }
 
-
+	@And("^select \"([^\"]*)\"$")
+    public void select_something(String filter) 
+    {
+		if(filter=="All")
+		{
+			pageobjectmanager.getfp().selectAll();
+		}
+		else if(filter=="Archive")
+		{
+			pageobjectmanager.getfp().selectArchive();
+		}
+		else
+		{
+			pageobjectmanager.getfp().selectActive();
+		}
+    }
+	
+	
+	@Then("^the filtered instructors should be visible$")
+    public void the_filtered_instructors_should_be_visible() 
+    {
+		
+		
+    }
+	
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

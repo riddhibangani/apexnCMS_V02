@@ -2,6 +2,7 @@ package utilities;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.FilterPage;
 import pageObjects.InstructorPage;
 import pageObjects.LoginPage;
 import pageObjects.MusicCategoryPage;
@@ -15,6 +16,7 @@ public class PageObjectManager {
 	private static InstructorPage ip;
 	private static MusicCategoryPage mp;
 	private static WorkoutPage wp;
+	private static FilterPage fp;
 	
 	
 	public PageObjectManager(WebDriver driver) 
@@ -46,6 +48,11 @@ public class PageObjectManager {
 	public WorkoutPage getwp(){
 		 
 		 return (wp == null) ? wp = new WorkoutPage(driver) : wp;
+		 
+		 }
+	public FilterPage getfp(){
+		 
+		 return (fp == null) ? fp = new FilterPage(driver) : fp;
 		 
 		 }
 	

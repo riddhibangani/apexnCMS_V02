@@ -64,3 +64,41 @@ public class ExcelReader
 
 	
 }
+
+
+
+
+
+/* 			String Instructor_Name = currentrow.getCell(0).getStringCellValue();
+			String Instructor_Bio = currentrow.getCell(1).getStringCellValue();
+			String Instructor_Thumbnail = currentrow.getCell(2).getStringCellValue();
+			String Music_Title = currentrow.getCell(3).getStringCellValue();
+			String Workout_Title = currentrow.getCell(4).getStringCellValue();
+			String Workout_Description = currentrow.getCell(5).getStringCellValue();
+			String Video_URL = currentrow.getCell(6).getStringCellValue();
+			int Duration = (int) currentrow.getCell(7).getNumericCellValue();
+			String Genre = currentrow.getCell(8).getStringCellValue();
+			String Level = currentrow.getCell(9).getStringCellValue();
+			String Playlist_ID = currentrow.getCell(10).getStringCellValue();
+			String Use_Weights = currentrow.getCell(11).getStringCellValue();
+			String Music_Category = currentrow.getCell(12).getStringCellValue();
+			String Instructor = currentrow.getCell(13).getStringCellValue();
+			String Workout_Tumbnail = currentrow.getCell(14).getStringCellValue();
+			String Warmup_Name = currentrow.getCell(15).getStringCellValue();
+			int Warmup_Start = (int) currentrow.getCell(16).getNumericCellValue();
+			int Warmup_end = (int) currentrow.getCell(17).getNumericCellValue();
+			String Workout_Name = currentrow.getCell(18).getStringCellValue();
+			int Workout_Start = (int) currentrow.getCell(19).getNumericCellValue();
+			int Workout_end = (int) currentrow.getCell(20).getNumericCellValue();
+			String Cooldown_Name = currentrow.getCell(21).getStringCellValue();
+			int Cooldown_Start = (int) currentrow.getCell(22).getNumericCellValue();
+			int Cooldown_end = (int) currentrow.getCell(23).getNumericCellValue();
+			
+			int Segment_start = (int) currentrow.getCell(24).getNumericCellValue();
+			int Segment_end = (int) currentrow.getCell(25).getNumericCellValue();
+			int Segment_RMP_Low = (int) currentrow.getCell(26).getNumericCellValue();
+			int Segment_RMP_High = (int) currentrow.getCell(27).getNumericCellValue();
+			int Segment_Resistant_Low = (int) currentrow.getCell(27).getNumericCellValue();
+			int Segment_Resistant_High = (int) currentrow.getCell(29).getNumericCellValue();
+
+*/

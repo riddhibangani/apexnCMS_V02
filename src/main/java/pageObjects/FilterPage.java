@@ -1,5 +1,9 @@
 package pageObjects;
 
+import java.util.List;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -24,21 +28,23 @@ public WebDriver ldriver;
 
 	//WebElements
 	
-	@FindBy(xpath = "//button[@id='filter-menu']/span[@class='mat-button-wrapper' and 1]/mat-icon[@class='mat-icon notranslate material-icons mat-icon-no-color' and 1]")
+	@FindBy(id = "filter-menu")
 	@CacheLookup
 	WebElement drpFilter;
 	
-	@FindBy(xpath = "entity-filter-All")
+	@FindBy(id = "entity-filter-All")
 	@CacheLookup
 	WebElement FilterAll;
 	
-	@FindBy(xpath = "entity-filter-Active")
+	@FindBy(id = "entity-filter-Active")
 	@CacheLookup
 	WebElement FilterActive;
 	
-	@FindBy(xpath = "entity-filter-Archived")
+	@FindBy(id = "entity-filter-Archived")
 	@CacheLookup
 	WebElement FilterArchive;
+	
+	
 	
 	
 	//Action Methods
@@ -59,12 +65,78 @@ public WebDriver ldriver;
 	{
 		waithelper.WaitForClikableElement(FilterActive, 10);
 		FilterActive.click();
+		
+		ldriver.findElements(By.tagName("mat-card")); // option
+		
+		List<WebElement> all = ldriver.findElements(By.xpath("//mat-card"));
+
+		WebElement filter;
+		Boolean result = true;
+
+		for(int i=0 ; i<all.size();i++)
+		{
+
+			filter = all.get(i);
+
+			if(filter.getAttribute("class").contains("archived"))
+			{	
+				result = false;
+			}
+
+			else
+			{
+				result = true;
+				break;
+			}
+		}
+		
+		if(result==true)
+		{
+			Assert.assertEquals(true, result);
+		}
+		else
+		{
+			Assert.assertEquals(false, result);
+		}
 	}
 	
 	public void selectArchive()
 	{
 		waithelper.WaitForClikableElement(FilterArchive, 10);
 		FilterArchive.click();
+		
+		ldriver.findElements(By.tagName("mat-card")); // option
+		
+		List<WebElement> all = ldriver.findElements(By.xpath("//mat-card"));
+
+		WebElement filter;
+		Boolean result = true;
+
+		for(int i=0 ; i<all.size();i++)
+		{
+
+			filter = all.get(i);
+
+			if(filter.getAttribute("class").contains("archived"))
+			{	
+				result = true;
+			}
+
+			else
+			{
+				result = false;
+				break;
+			}
+		}
+		
+		if(result==true)
+		{
+			Assert.assertEquals(true, result);
+		}
+		else
+		{
+			Assert.assertEquals(false, result);
+		}
 	}
 
 }

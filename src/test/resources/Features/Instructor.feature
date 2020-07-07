@@ -14,10 +14,10 @@ Feature: Ability to add and edit instructors
   @addInst
   Scenario: Add new instructor
     When click on Create a new instructor button
-    And enter the name as "Riddhi" and Bio as "Information about Riddhi1"
-    When click on select the file to import
+    And enter the name as "AutoInst" and Bio as "Information about AutoInst"
+    When click on select the file to import at "/Users/user/Downloads/1589466155796-1024.png"
     And click on save button
-    Then the new instructor "Riddhi" is added successfully
+    Then the new instructor "AutoInst" is added successfully
     And close the browser
 
     
@@ -25,7 +25,7 @@ Feature: Ability to add and edit instructors
     Scenario: Add new instructor and edit the same
     When click on Create a new instructor button
     And enter the name as "Riddhi" and Bio as "Information about Riddhi1"
-    When click on select the file to import
+    When click on select the file to import at "/Users/user/Downloads/1589466155796-1024.png"
     And click on save button
     Then the new instructor "Riddhi" is added successfully
     When click on the new instructor created
@@ -57,14 +57,14 @@ Feature: Ability to add and edit instructors
     Then the filtered instructors should be visible
     And close the browser
     
-    @filteractive
+    @filterarchive
     Scenario: Filter the instructor to view active list
     When click on filter option
-    And select "All"
-    Then the filtered instructors should be visible
-    And close the browser
+    And select "Archive"
+    #Then the filtered instructors should be visible
+    #And close the browser
     
-    @filterarchive
+    @filteractive
     Scenario: Filter the instructor ro view archive list
     When click on filter option
     And select "Active"
