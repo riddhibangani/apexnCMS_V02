@@ -14,19 +14,19 @@ Feature: Ability to add and edit music categories
    @addMusic
   Scenario: Add new music category
     When click on Create a new music category button
-    And enter the title as "Metalica"
+    And enter the title for music
     And click on save button
-    Then the new music category "Metalica" is added successfully
+    Then the new music category is added successfully
     And close the browser
     
     @addandEditMusic
     Scenario: Add new music category and edit the same
     When click on Create a new music category button
-    And enter the title as "Metalica"
+    And enter the title for music
     And click on save button
-    Then the new music category "Metalica" is added successfully
+    Then the new music category is added successfully
     When click on the new music category created
-    And update the title as "Metalica1"
+    And update the title for music
     And click on save button
     Then the music category is updated successfully
     And close the browser
@@ -35,7 +35,7 @@ Feature: Ability to add and edit music categories
     @EditMusic
     Scenario: Edit existing music category
     And click on the existing music category
-    And update the title as "MusicCategory1"
+    And update the title for music
     And click on save button
     Then the music category is updated successfully
     And close the browser
@@ -47,26 +47,5 @@ Feature: Ability to add and edit music categories
     When the archive option is selected
     And click on save button
     Then the music category is archived
-    And close the browser
-    
-    @filterallMusic
-    Scenario: Filter the music category to view all the list
-    When click on filter option
-    And select "All"
-    Then the filtered music categories should be visible
-    And close the browser
-    
-    @filteractiveMusic
-    Scenario: Filter the music category to view active list
-    When click on filter option
-    And select "All"
-    Then the filtered music categories should be visible
-    And close the browser
-    
-    @filterarchiveMusic
-    Scenario: Filter the music category to view archive list
-    When click on filter option
-    And select "Active"
-    Then the filtered music categories should be visible
     And close the browser
     

@@ -11,7 +11,7 @@
 
 	<name>apexnCMS_V02</name>
 	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
+	<url>https://qa.apexcms.waracle.dev/login</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,8 +23,8 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
+			<version>4.13</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
@@ -39,7 +39,7 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
-			<version>6.1.2</version>
+			<version>4.8.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-html -->
@@ -62,33 +62,34 @@
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>6.1.2</version>
+			<version>4.8.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>6.1.2</version>
+			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
 
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm-deps -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-jvm-deps</artifactId>
 			<version>1.0.6</version>
 			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
 
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>cucumber-reporting</artifactId>
-			<version>5.3.0</version>
+			<version>5.0.0</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
 		<dependency>
@@ -100,11 +101,11 @@
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>gherkin</artifactId>
 			<version>13.0.0</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 
@@ -152,11 +153,44 @@
 			<version>4.1.7</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports-cucumber4-adapter</artifactId>
+			<version>1.0.12</version>
+			<exclusions>
+				<exclusion>
+					<groupId>io.cucumber</groupId>
+					<artifactId>cucumber-java</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.cucumber</groupId>
+					<artifactId>cucumber-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
 
 
 	</dependencies>
 
 	<build>
+		<defaultGoal>test</defaultGoal>
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven 
 				defaults (may be moved to parent pom) -->
 			<plugins>
@@ -172,6 +206,52 @@
 					</configuration>
 				</plugin>
 
+
+				<plugin>
+					<groupId>net.masterthought</groupId>
+					<artifactId>maven-cucumber-reporting</artifactId>
+					<version>5.3.0</version>
+					<executions>
+						<execution>
+							<id>execution</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+							<configuration>
+								<projectName>apexnCMS_V02</projectName>
+								<skip>false</skip>
+								<!-- output directory for the generated report -->
+								<outputDirectory>target/cucumber-reports/extentreports</outputDirectory>
+								<!-- optional, defaults to outputDirectory if not specified -->
+								<cucumberOutput>target/cucumber-reports/cucumber.json</cucumberOutput>
+								<buildNumber>1</buildNumber>
+								<parallelTesting>false</parallelTesting>
+								<inputDirectory>${project.build.directory}/cucumber-reports</inputDirectory>
+
+								<jsonFiles>
+									<!-- supports wildcard or name pattern -->
+									<param>**/*.json</param>
+								</jsonFiles>
+								<!-- optional, defaults to outputDirectory if not specified -->
+								<classificationDirectory>${project.build.directory}/cucumber-reports</classificationDirectory>
+								<classificationFiles>
+									<!-- supports wildcard or name pattern -->
+									<param>sample.properties</param>
+									<param>other.properties</param>
+								</classificationFiles>
+								<parallelTesting>false</parallelTesting>
+								<!-- optional, set true to group features by its Ids -->
+								<mergeFeaturesById>false</mergeFeaturesById>
+								<!-- optional, set true to get a final report with latest results 
+									of the same test from different test runs -->
+								<mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+								<!-- optional, set true to fail build on test failures -->
+								<checkBuildResult>false</checkBuildResult>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
 
 
@@ -192,6 +272,9 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.22.1</version>
+					<configuration>
+						<testFailureIgnore>true</testFailureIgnore>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>

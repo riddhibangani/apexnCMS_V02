@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,6 @@ import utilities.WaitHelper;
 
 import java.util.List;
 
-import org.junit.Assert;
 
 public class InstructorPage {
 
@@ -48,7 +48,7 @@ public class InstructorPage {
 	@CacheLookup
 	WebElement txtBio;
 	
-	@FindBy(id = "is-archived-input")
+	@FindBy(xpath = "//*[@id=\"is-archived\"]/label/div")
 	@CacheLookup
 	WebElement checkboxArchive;
 	
@@ -95,9 +95,18 @@ public class InstructorPage {
 		txtBio.sendKeys(instBio);
 	}
 
-	public void chcekisArchived()
+	public void clickArchived()
 	{
+		Boolean checekboxDisplay = checkboxArchive.isDisplayed();
+		System.out.println("Is the checkbox displayed: " + checekboxDisplay);
+		
+		Boolean checkboxSelected = checkboxArchive.isSelected();
+		System.out.println("Is the checkbox selected: "+ checkboxSelected);
+		
 		checkboxArchive.click();
+		
+		Boolean checkboxStatus = checkboxArchive.isSelected();
+		System.out.println("The updated status of checkbox is: "+ checkboxStatus);
 	}
 
 	public void uploadimage(String filepath)
@@ -106,25 +115,15 @@ public class InstructorPage {
 
 	}
 
-	public void savenewInstructor()
+	public void savenew()
 	{
 		btnSave_Inst.click();
-		waithelper.WaitForClikableElement(btnSave_Inst, 10);
+		
 	}
 
 	public void NewInstructor(String newInst)
 	{
 		
-//		if(ldriver.getPageSource().contains(newInst))
-//		{
-//			System.out.println("Instructor is created successfully");
-//			Assert.assertTrue(true);
-//		}
-//		else{
-//			Assert.assertEquals(newInst, ldriver.getPageSource().contains(newInst));
-//			
-//		
-//		}
 		
 		List<WebElement> all = ldriver.findElements(By.xpath("//mat-card-content/h4"));
 		
@@ -136,35 +135,85 @@ public class InstructorPage {
 		
 					newInstructor = all.get(i);
 		
-					if(newInstructor.getAttribute("class").contains(newInst))
+					if(newInstructor.getText().equals(newInst))
 					{	
 						result = true;
+						break;
 					}
 		
 					else
 					{
 						result = false;
-						break;
+		
 					}
 				}
 				
 				if(result==true)
 				{
 					Assert.assertEquals(true, result);
+					System.out.println("Instructor is added successfully");
+				
 				}
 				else
 				{
+					System.out.println("Instructor is not added successfully");
 					Assert.assertEquals(false, result);
+					
 				}
+	}
+	
+	public void clickonNewInst(String newInst)
+	{
 		
 	}
 	
-//	public void existingInstructor()
-//	{
-//		List<WebElement> allexistingInst = ldriver.findElements(By.xpath("//mat-card-content/h4"));
-//		
-//	}
+	public void existingInstructor()
+	{
+		List<WebElement> allexistingInst = ldriver.findElements(By.xpath("//mat-card-actions"));
+		allexistingInst.get(1).click();
+		
+	}
+	
+	public void updateInstName(String instName)
+	{
+		txtName.clear();
+		txtName.sendKeys(instName);
+	}
+
+	public void updateInstBio(String instBio)
+	{
+		txtName.clear();
+		txtBio.sendKeys(instBio);
+	}
+
+	
+	public void archivedInstructor()
+	{
+		
+		Boolean result;
+		
+		List<WebElement> allexistingInst = ldriver.findElements(By.xpath("//mat-card-content/h4"));
+		if(allexistingInst.get(0).getAttribute("class").contains("archived"))
+		{
+			result = true;
+		}
+		else 
+		{
+			result = false;
+		}
+		if(result==true)
+		{
+			Assert.assertEquals(true, result);
+		}
+		else
+		{
+			Assert.assertEquals(false, result);
+		}
+	}
+	
 }
+	
+	
 
 
 
